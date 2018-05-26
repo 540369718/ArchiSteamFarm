@@ -2,9 +2,9 @@
 ### Install Debian/Ubuntu
 ```shell
 sudo apt-get update
-sudo apt-get install wget unzip libunwind8 liblttng-ust0 libcurl3 libssl1.0.0 libuuid1 libkrb5-3 zlib1g libicu52 -y //Ubuntu 14.x
-sudo apt-get install wget unzip libunwind8 liblttng-ust0 libcurl3 libssl1.0.0 libuuid1 libkrb5-3 zlib1g libicu55 -y //Ubuntu 16.x
-sudo apt-get install wget unzip libunwind8 liblttng-ust0 libcurl3 libssl1.0.0 libuuid1 libkrb5-3 zlib1g libicu57 -y //Ubuntu 17.x
+sudo apt-get install wget unzip screen libunwind8 liblttng-ust0 libcurl3 libssl1.0.0 libuuid1 libkrb5-3 zlib1g libicu52 -y //Ubuntu 14.x
+sudo apt-get install wget unzip screen libunwind8 liblttng-ust0 libcurl3 libssl1.0.0 libuuid1 libkrb5-3 zlib1g libicu55 -y //Ubuntu 16.x
+sudo apt-get install wget unzip screen libunwind8 liblttng-ust0 libcurl3 libssl1.0.0 libuuid1 libkrb5-3 zlib1g libicu57 -y //Ubuntu 17.x
 mkdir ASF && cd ASF
 sudo wget $(curl -s https://api.github.com/repos/JustArchi/ArchiSteamFarm/releases/latest | grep browser_download_url | grep 'linux-x64[.]zip' | head -n 1 | cut -d '"' -f 4) && unzip ASF-linux-x64.zip && rm ASF-linux-x64.zip && sudo chmod +x ArchiSteamFarm
 ```
@@ -37,10 +37,26 @@ vim config/xxx.json
 Debug                     //默认值为false，True调试模式，不建议开启
 FarmOffline               //默认值为false，True挂卡时不显示游戏状态
 ShutdownOnFarmingFinished //True挂完卡自动退出
-CurrentCulture            //zh-CN简体中文
+```
+vim config/ASF.json将"CurrentCulture"的值改为"zh-CN"
+
+直接运行./ArchiSteamFarm
+
+以screen运行
+```
+screen -S ASF        //新建一个名为ASF的窗口  
+./ArchiSteamFarm  
+```
+按 ctrl +a +d 进入后台
+```
+screen -ls              //列出当前所有的窗口  
+    Detached---->挂起状态，无终端在连接会话    
+    Attached---->有终端在连接会话    
+   
+screen -r ASF           //恢复窗口  
+screen -S ASF -X quit   //删除窗口  
 ```
 
-运行./ArchiSteamFarm
 
 在组聊天窗口可以输入命令
 ```
