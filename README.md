@@ -1,31 +1,57 @@
 # ArchiSteamFarm
+### Install Debian/Ubuntu
+```shell
+sudo apt-get update
+sudo apt-get install wget unzip libunwind8 liblttng-ust0 libcurl3 libssl1.0.0 libuuid1 libkrb5-3 zlib1g libicu52 -y //Ubuntu 14.x
+sudo apt-get install wget unzip libunwind8 liblttng-ust0 libcurl3 libssl1.0.0 libuuid1 libkrb5-3 zlib1g libicu55 -y //Ubuntu 16.x
+sudo apt-get install wget unzip libunwind8 liblttng-ust0 libcurl3 libssl1.0.0 libuuid1 libkrb5-3 zlib1g libicu57 -y //Ubuntu 17.x
+mkdir ASF && cd ASF
+sudo wget $(curl -s https://api.github.com/repos/JustArchi/ArchiSteamFarm/releases/latest | grep browser_download_url | grep 'linux-x64[.]zip' | head -n 1 | cut -d '"' -f 4) && unzip ASF-linux-x64.zip && rm ASF-linux-x64.zip && sudo chmod +x ArchiSteamFarm
+```
+GroupID64查询方法:
+点开你的组的页面，地址栏会是这样子：
+https://steamcommunity.com/groups/thesharing
+然后在地址后面加上/memberslistxml/?xml=1，这时候地址栏是这样子的：
+https://steamcommunity.com/groups/thesharing/memberslistxml/?xml=1
+SteamID64： 查询地址https://steamrepcn.com/
+```shell
+vim config/xxx.json
+{
+        "Enabled": true,
+        "SteamLogin": "自己的steam登录用户名",
+        "SteamPassword": "自己的steam登录密码",
+        "FarmOffline": false,
+        "ShutdownOnFarmingFinished": true,
+        "CardDropsRestricted": true,
+        "ShutdownOnFarmingFinished": false,
+        "SteamMasterClanID": 建立的组GroupID64,
+        "SteamUserPermissions": {
+            "自己的SteamID64": 3
+        },
+        "DismissInventoryNotifications": false
+}
+```
+一些参数解释
+```
+Debug                     //默认值为false，True调试模式，不建议开启
+FarmOffline               //默认值为false，True挂卡时不显示游戏状态
+ShutdownOnFarmingFinished //True挂完卡自动退出
+```
 
-[![Build status (Windows)](https://img.shields.io/appveyor/ci/JustArchi/ArchiSteamFarm/master.svg?label=Windows&maxAge=600)](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)
-[![Build status (Unix)](https://img.shields.io/travis/JustArchi/ArchiSteamFarm/master.svg?label=Unix&maxAge=600)](https://travis-ci.org/JustArchi/ArchiSteamFarm)
-[![Build status (Docker)](https://img.shields.io/docker/build/justarchi/archisteamfarm.svg?label=Docker&maxAge=600)](https://hub.docker.com/r/justarchi/archisteamfarm)
-[![Github last commit date](https://img.shields.io/github/last-commit/JustArchi/ArchiSteamFarm.svg?label=Updated&maxAge=600)](https://github.com/JustArchi/ArchiSteamFarm/commits)
-[![License](https://img.shields.io/github/license/JustArchi/ArchiSteamFarm.svg?label=License&maxAge=2592000)](https://github.com/JustArchi/ArchiSteamFarm/blob/master/LICENSE-2.0.txt)
-[![Localization](https://d322cqt584bo4o.cloudfront.net/archisteamfarm/localized.svg)](https://crowdin.com/project/archisteamfarm)
+运行./ArchiSteamFarm
 
-[![ConfigGenerator status](https://img.shields.io/website-up-down-green-red/https/justarchi.github.io/ArchiSteamFarm.svg?label=ConfigGenerator&maxAge=3600)](https://justarchi.github.io/ArchiSteamFarm)
-[![Statistics status](https://img.shields.io/website-up-down-green-red/https/asf.justarchi.net.svg?label=Statistics&maxAge=3600)](https://asf.justarchi.net)
-[![Steam group](https://img.shields.io/badge/Steam-group-yellowgreen.svg)](https://steamcommunity.com/groups/ascfarm)
-[![Discord](https://img.shields.io/discord/267292556709068800.svg?label=Discord&maxAge=3600)](https://discord.gg/hSQgt8j)
-[![Wiki](https://img.shields.io/badge/Read-wiki-cc5490.svg)](https://github.com/JustArchi/ArchiSteamFarm/wiki)
-
-[![GitHub stable release version](https://img.shields.io/github/release/JustArchi/ArchiSteamFarm.svg?label=Stable&maxAge=600)](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)
-[![GitHub stable release date](https://img.shields.io/github/release-date/JustArchi/ArchiSteamFarm.svg?label=Released&maxAge=600)](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)
-[![Github stable release downloads](https://img.shields.io/github/downloads/JustArchi/ArchiSteamFarm/latest/total.svg?label=Downloads&maxAge=600)](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)
-
-[![GitHub experimental release version](https://img.shields.io/github/release/JustArchi/ArchiSteamFarm/all.svg?label=Experimental&maxAge=600)](https://github.com/JustArchi/ArchiSteamFarm/releases)
-[![GitHub experimental release date](https://img.shields.io/github/release-date-pre/JustArchi/ArchiSteamFarm.svg?label=Released&maxAge=600)](https://github.com/JustArchi/ArchiSteamFarm/releases)
-[![Github experimental release downloads](https://img.shields.io/github/downloads-pre/JustArchi/ArchiSteamFarm/latest/total.svg?label=Downloads&maxAge=600)](https://github.com/JustArchi/ArchiSteamFarm/releases)
-
-[![Patreon support](https://img.shields.io/badge/Patreon-support-yellow.svg)](https://www.patreon.com/JustArchi)
-[![Paypal.me donate](https://img.shields.io/badge/Paypal.me-donate-yellow.svg)](https://www.paypal.me/JustArchi/5usd)
-[![Paypal donate](https://img.shields.io/badge/Paypal-donate-yellow.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HD2P2P3WGS5Y4)
-[![Bitcoin donate](https://img.shields.io/badge/Bitcoin-donate-yellow.svg)](https://blockchain.info/payment_request?address=1Archi6M1r5b41Rvn1SY2FfJAzsrEUT7aT)
-[![Steam donate](https://img.shields.io/badge/Steam-donate-yellow.svg)](https://steamcommunity.com/tradeoffer/new/?partner=46697991&token=0ix2Ruv_)
+在组聊天窗口可以输入命令
+```
+!play AppID               //切换成手动挂卡，单独挂指定游戏的AppID
+!resume                   //切换回自动挂卡
+!addlicense AppID或SubID  //用于添加免费或限时免费的游戏
+!r AAAAA-BBBBB-CCCCC      //尝试激活key，注意VPS的地区
+!iqadd AppID              //新增指定AppID优先挂卡
+!iqrm AppID               //从优先挂卡队列删除指定的AppID
+!iq                       //显示优先挂卡的队列
+!unpack                   //将库存内的补充包全部拆开
+ibadd AppID               //把游戏加进黑名单
+```
 
 ---
 
