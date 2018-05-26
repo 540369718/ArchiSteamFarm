@@ -52,7 +52,7 @@ CurrentCulture            //zh-CN简体中文
 !iqrm AppID               //从优先挂卡队列删除指定的AppID
 !iq                       //显示优先挂卡的队列
 !unpack                   //将库存内的补充包全部拆开
-ibadd AppID               //把游戏加进黑名单
+!badd AppID               //把游戏加进黑名单
 ```
 
 ---
