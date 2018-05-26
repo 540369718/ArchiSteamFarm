@@ -25,6 +25,7 @@ vim config/xxx.json
         "CardDropsRestricted": true,
         "ShutdownOnFarmingFinished": false,
         "SteamMasterClanID": 建立的组GroupID64,
+        "CurrentCulture": "zh-CN",
         "SteamUserPermissions": {
             "自己的SteamID64": 3
         },
@@ -36,6 +37,7 @@ vim config/xxx.json
 Debug                     //默认值为false，True调试模式，不建议开启
 FarmOffline               //默认值为false，True挂卡时不显示游戏状态
 ShutdownOnFarmingFinished //True挂完卡自动退出
+CurrentCulture            //zh-CN简体中文
 ```
 
 运行./ArchiSteamFarm
