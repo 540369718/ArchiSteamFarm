@@ -9,10 +9,10 @@ mkdir ASF && cd ASF
 sudo wget $(curl -s https://api.github.com/repos/JustArchi/ArchiSteamFarm/releases/latest | grep browser_download_url | grep 'linux-x64[.]zip' | head -n 1 | cut -d '"' -f 4) && unzip ASF-linux-x64.zip && rm ASF-linux-x64.zip && sudo chmod +x ArchiSteamFarm
 ```
 GroupID64查询方法:
-点开你的组的页面，地址栏会是这样子：
-https://steamcommunity.com/groups/thesharing
-然后在地址后面加上/memberslistxml/?xml=1，这时候地址栏是这样子的：
-https://steamcommunity.com/groups/thesharing/memberslistxml/?xml=1
+点开你的组的页面，地址栏会是这样子：  
+https://steamcommunity.com/groups/thesharing  
+然后在地址后面加上/memberslistxml/?xml=1，这时候地址栏是这样子的：  
+https://steamcommunity.com/groups/thesharing/memberslistxml/?xml=1  
 SteamID64： 查询地址https://steamrepcn.com/
 ```shell
 vim config/xxx.json
