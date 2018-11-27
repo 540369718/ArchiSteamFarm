@@ -7,7 +7,8 @@ sudo apt-get install wget unzip screen libunwind8 liblttng-ust0 libcurl3 libssl1
 sudo apt-get install wget unzip screen libunwind8 liblttng-ust0 libcurl3 libssl1.0.0 libuuid1 libkrb5-3 zlib1g libicu57 -y //Ubuntu 17.x
 sudo apt-get install wget unzip screen libunwind8 liblttng-ust0 libcurl3 libssl1.0.0 libuuid1 libkrb5-3 zlib1g libicu60 -y //Ubuntu 18.x
 mkdir ASF && cd ASF
-sudo wget $(curl -s https://api.github.com/repos/JustArchi/ArchiSteamFarm/releases/latest | grep browser_download_url | grep 'linux-x64[.]zip' | head -n 1 | cut -d '"' -f 4) && unzip ASF-linux-x64.zip && rm ASF-linux-x64.zip && sudo chmod +x ArchiSteamFarm
+sudo wget $(curl -s https://api.github.com/repos/JustArchi/ArchiSteamFarm/releases/latest | grep browser_download_url | grep 'linux-x64[.]zip' | head -n 1 | cut -d '"' -f 4)
+unzip ASF-linux-x64.zip && rm ASF-linux-x64.zip && sudo chmod +x ArchiSteamFarm
 ```
 GroupID64查询方法:
 点开你的组的页面，地址栏会是这样子：  
